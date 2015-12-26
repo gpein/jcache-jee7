@@ -3,9 +3,10 @@ package io.github.gpein.jcache.interfaces.rest;
 import javax.cache.CacheManager;
 import javax.cache.configuration.CompleteConfiguration;
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -33,33 +34,17 @@ public class CachesResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RestCache> get() {
+    public List<Cache> get() {
         return StreamSupport.
                 stream(cacheManager.getCacheNames().spliterator(), false)
                 .map(cacheName -> {
                     CompleteConfiguration configuration = cacheManager.getCache(cacheName).getConfiguration(CompleteConfiguration.class);
-                    RestCache cache = new RestCache();
+                    Cache cache = new Cache();
                     cache.setName(cacheName);
                     cache.setManagementEnabled(configuration.isManagementEnabled());
                     cache.setStatisticsEnabled(configuration.isStatisticsEnabled());
                     return cache;
                 })
                 .collect(Collectors.toList());
-    }
-
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public Response put(RestCache cacheToUpdate) {
-
-        String cacheName = cacheToUpdate.getName();
-
-        if (cacheManager.getCache(cacheName) == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-
-        cacheManager.enableManagement(cacheName, cacheToUpdate.isManagementEnabled());
-        cacheManager.enableStatistics(cacheName, cacheToUpdate.isStatisticsEnabled());
-
-        return Response.ok().build();
     }
 }

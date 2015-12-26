@@ -1,6 +1,5 @@
 package io.github.gpein.jcache.interfaces.rest;
 
-import com.hazelcast.cache.CacheStatistics;
 import com.hazelcast.cache.ICache;
 
 import javax.cache.Cache;
@@ -46,8 +45,8 @@ public class CacheStatisticsResource {
         }
 
         if (((CompleteConfiguration) cache.getConfiguration(CompleteConfiguration.class)).isStatisticsEnabled() && cache instanceof ICache) {
-            CacheStatistics stats = ((ICache) cache).getLocalCacheStatistics();
-            RestCacheStatistics statistics = new RestCacheStatistics(
+            com.hazelcast.cache.CacheStatistics stats = ((ICache) cache).getLocalCacheStatistics();
+            CacheStatistics statistics = new CacheStatistics(
                     stats.getCacheHits(),
                     stats.getCacheMisses(),
                     stats.getCacheHitPercentage(),

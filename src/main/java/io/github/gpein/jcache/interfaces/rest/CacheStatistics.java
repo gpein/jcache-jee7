@@ -15,7 +15,7 @@ package io.github.gpein.jcache.interfaces.rest;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class RestCacheStatistics {
+public class CacheStatistics {
 
     private Long hits;
     private Long misses;
@@ -29,7 +29,7 @@ public class RestCacheStatistics {
     private Float averagePutTime;
     private Float averageRemoveTime;
 
-    public RestCacheStatistics(Long hits, Long misses, Float hitPercentage, Float missPercentage, Long gets, Long puts, Long removals, Long evictions, Float averageGetTime, Float averagePutTime, Float averageRemoveTime) {
+    public CacheStatistics(Long hits, Long misses, Float hitPercentage, Float missPercentage, Long gets, Long puts, Long removals, Long evictions, Float averageGetTime, Float averagePutTime, Float averageRemoveTime) {
         this();
         this.hits = hits;
         this.misses = misses;
@@ -44,7 +44,7 @@ public class RestCacheStatistics {
         this.averageRemoveTime = averageRemoveTime;
     }
 
-    public RestCacheStatistics() {
+    public CacheStatistics() {
     }
 
     public Long getHits() {

@@ -1,4 +1,4 @@
-package io.github.gpein.jcache.cdi;
+package io.github.gpein.jcache.configuration;
 
 import javax.cache.configuration.MutableConfiguration;
 import javax.cache.expiry.Duration;

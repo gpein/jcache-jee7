@@ -15,7 +15,7 @@ package io.github.gpein.jcache.interfaces.rest;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class RestCache {
+public class Cache {
 
     private String name;
 

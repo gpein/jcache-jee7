@@ -36,7 +36,7 @@ public class JCacheProducers {
         Cache<K, V> cache = produceCacheManager().getCache(cacheName);
 
         if (cache == null)
-            throw new IllegalStateException("Cannot @Produces cache : Named JCache '" + cacheName + "' does not exists. Make sure you created it at startup with CacheManager.createCache()");
+            throw new IllegalStateException("Cannot @Produces cache : Named JCache '" + cacheName + "' does not exists. Make sure you created it at startup");
 
         return cache;
     }
