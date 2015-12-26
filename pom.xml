@@ -1,0 +1,154 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.gpein</groupId>
+    <artifactId>jcache-jee7</artifactId>
+    <version>0.0.1</version>
+
+    <packaging>jar</packaging>
+    <name>JCache JEE7 :: ${project.artifactId} - ${project.packaging}</name>
+    <description>JCache JEE7 provides support for JCache "JSR 107" in a Java EE 7 environment</description>
+    <inceptionYear>2015</inceptionYear>
+    <url>https://github.com/gpein/jcache-jee7</url>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>gpein</id>
+            <name>Guillaume Pein</name>
+            <email>guillaume.pein@gmail.com</email>
+            <timezone>+1</timezone>
+            <roles>
+                <role>Java Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <lib.cdi-api.version>1.1</lib.cdi-api.version>
+        <lib.cache-api.version>1.0.0</lib.cache-api.version>
+        <lib.hazelcast.version>3.5.2</lib.hazelcast.version>
+        <lib.testng.version>6.8.7</lib.testng.version>
+        <lib.weld-se-core.version>2.3.1.Final</lib.weld-se-core.version>
+        <lib.deltaspike.version>1.5.1</lib.deltaspike.version>
+        <lib.assertj-core.version>1.6.1</lib.assertj-core.version>
+        <lib.jaxrs-api.version>2.0.1</lib.jaxrs-api.version>
+
+        <plugin.jacoco-maven-plugin.version>0.6.1.201212231917</plugin.jacoco-maven-plugin.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${plugin.jacoco-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>default-prepare-agent</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>default-report</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <dependencies>
+        <!-- provided-->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>${lib.cdi-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${lib.jaxrs-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- compile -->
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${lib.cache-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsr107.ri</groupId>
+            <artifactId>cache-annotations-ri-cdi</artifactId>
+            <version>${lib.cache-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsr107.ri</groupId>
+            <artifactId>cache-annotations-ri-common</artifactId>
+            <version>${lib.cache-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hazelcast</groupId>
+            <artifactId>hazelcast</artifactId>
+            <version>${lib.hazelcast.version}</version>
+        </dependency>
+
+        <!-- test-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${lib.testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>${lib.weld-se-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-api</artifactId>
+            <version>${lib.deltaspike.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.deltaspike.core</groupId>
+            <artifactId>deltaspike-core-impl</artifactId>
+            <version>${lib.deltaspike.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${lib.assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

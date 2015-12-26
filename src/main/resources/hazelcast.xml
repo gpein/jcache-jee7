@@ -1,0 +1,17 @@
+<hazelcast>
+    <!-- cluster mode disabled : STANDALONE -->
+    <network>
+        <join>
+            <multicast enabled="false"/>
+            <tcp-ip enabled="false">
+                <member>127.0.0.1</member>
+            </tcp-ip>
+        </join>
+    </network>
+
+    <properties>
+        <!-- disabling halzecast logs -->
+        <property name="hazelcast.logging.type">none</property>
+    </properties>
+
+</hazelcast>
