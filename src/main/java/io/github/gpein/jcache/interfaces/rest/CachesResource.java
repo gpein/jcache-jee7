@@ -1,16 +1,3 @@
-package io.github.gpein.jcache.interfaces.rest;
-
-import javax.cache.CacheManager;
-import javax.cache.configuration.CompleteConfiguration;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 /**
  * Copyright (C) 2015 Guillaume Pein <guillaume.pein@gmail.com>
  * <p>
@@ -26,12 +13,31 @@ import java.util.stream.StreamSupport;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.gpein.jcache.interfaces.rest;
+
+import javax.cache.CacheManager;
+import javax.cache.configuration.CompleteConfiguration;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+/**
+ * REST end point for operations on all caches
+ */
 @Path("caches")
 public class CachesResource {
 
     @Inject
     private CacheManager cacheManager;
 
+    /**
+     * @return collection of all running caches
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Cache> get() {

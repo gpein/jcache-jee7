@@ -1,11 +1,3 @@
-package io.github.gpein.jcache.cdi;
-
-import javax.cache.Cache;
-import javax.cache.CacheManager;
-import javax.cache.Caching;
-import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
-
 /**
  * Copyright (C) 2015 Guillaume Pein <guillaume.pein@gmail.com>
  * <p>
@@ -21,13 +13,36 @@ import javax.enterprise.inject.spi.InjectionPoint;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.gpein.jcache.cdi;
+
+import javax.cache.Cache;
+import javax.cache.CacheManager;
+import javax.cache.Caching;
+import javax.enterprise.inject.Produces;
+import javax.enterprise.inject.spi.InjectionPoint;
+
+/**
+ * Allow easy injection of javax.cache main API
+ */
 public class JCacheProducers {
 
+    /**
+     * Allow @Inject CacheManager
+     * @return static instance of CacheManager
+     */
     @Produces
     public CacheManager produceCacheManager() {
         return Caching.getCachingProvider().getCacheManager();
     }
 
+    /**
+     * Allow @Inject of Cache identified by its unique name
+     * @param ip to retrieve cache name
+     * @param <K> Key type
+     * @param <V> Value type
+     * @return unique instance of requested named cache
+     * @throws IllegalStateException if cache is not found in current context
+     */
     @Produces
     @NamedJCache
     public <K, V> Cache<K, V> produceCache(InjectionPoint ip) {

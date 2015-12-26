@@ -1,5 +1,3 @@
-package io.github.gpein.jcache.interfaces.rest;
-
 /**
  * Copyright (C) 2015 Guillaume Pein <guillaume.pein@gmail.com>
  * <p>
@@ -14,6 +12,11 @@ package io.github.gpein.jcache.interfaces.rest;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ */
+package io.github.gpein.jcache.interfaces.rest;
+
+/**
+ * REST representation of a cache
  */
 public class Cache {
 

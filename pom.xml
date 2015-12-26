@@ -4,7 +4,7 @@
 
     <groupId>io.github.gpein</groupId>
     <artifactId>jcache-jee7</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <packaging>jar</packaging>
     <name>JCache JEE7 :: ${project.artifactId} - ${project.packaging}</name>
@@ -32,8 +32,17 @@
         </developer>
     </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/gpein/jcache-jee7.git</connection>
+        <developerConnection>scm:git:git@github.com:gpein/jcache-jee7.git</developerConnection>
+        <url>http://github.com/gpein/jcache-jee7</url>
+    </scm>
+
     <properties>
         <java.version>1.8</java.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <lib.cdi-api.version>1.1</lib.cdi-api.version>
         <lib.cache-api.version>1.0.0</lib.cache-api.version>
@@ -45,6 +54,8 @@
         <lib.jaxrs-api.version>2.0.1</lib.jaxrs-api.version>
 
         <plugin.jacoco-maven-plugin.version>0.6.1.201212231917</plugin.jacoco-maven-plugin.version>
+        <plugin.maven-source-plugin.version>2.2.1</plugin.maven-source-plugin.version>
+        <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
     </properties>
 
     <build>
@@ -74,6 +85,32 @@
                             <phase>prepare-package</phase>
                             <goals>
                                 <goal>report</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${plugin.maven-source-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${plugin.maven-javadoc-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
                             </goals>
                         </execution>
                     </executions>

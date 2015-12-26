@@ -1,12 +1,3 @@
-package io.github.gpein.jcache.cdi;
-
-import javax.enterprise.util.Nonbinding;
-import javax.inject.Qualifier;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
  * Copyright (C) 2015 Guillaume Pein <guillaume.pein@gmail.com>
  * <p>
@@ -22,10 +13,25 @@ import java.lang.annotation.Target;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.gpein.jcache.cdi;
+
+import javax.enterprise.util.Nonbinding;
+import javax.inject.Qualifier;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * CDI qualifier used to specify a cache to inject
+ */
 @Qualifier
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface NamedJCache {
 
+    /**
+     * @return cache name to inject
+     */
     @Nonbinding String name() default "";
 }
