@@ -1,18 +1,3 @@
-package io.github.gpein.jcache.interfaces.rest;
-
-import com.hazelcast.cache.ICache;
-
-import javax.cache.Cache;
-import javax.cache.CacheManager;
-import javax.cache.configuration.CompleteConfiguration;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
 /**
  * Copyright (C) 2015 Guillaume Pein <guillaume.pein@gmail.com>
  * <p>
@@ -28,6 +13,21 @@ import javax.ws.rs.core.Response;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.gpein.jcache.interfaces.rest;
+
+import com.hazelcast.cache.ICache;
+
+import javax.cache.Cache;
+import javax.cache.CacheManager;
+import javax.cache.configuration.CompleteConfiguration;
+import javax.inject.Inject;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 @Path("caches/{cacheName}/statistics")
 public class CacheStatisticsResource {
 
