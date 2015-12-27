@@ -16,6 +16,41 @@ Using this module in a Web app will automatically expose a REST API to help deal
  
 This module relies on others Java EE API : CDI, JAX-RS
 
+Quick start
+------------
+
+First step is adding maven dependency into your WEB-INF\lib (for a WAR packaging)
+
+```xml 
+<dependency>
+    <groupId>io.github.gpein</groupId>
+    <artifactId>jcache-jee7</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
+
+Then enable JCache interceptors in your beans.xml CDI descriptor
+
+```xml 
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+       bean-discovery-mode="all">
+       
+    <interceptors>
+        <class>org.jsr107.ri.annotations.cdi.CacheResultInterceptor</class>
+        <class>org.jsr107.ri.annotations.cdi.CacheRemoveEntryInterceptor</class>
+        <class>org.jsr107.ri.annotations.cdi.CacheRemoveAllInterceptor</class>
+        <class>org.jsr107.ri.annotations.cdi.CachePutInterceptor</class>
+    </interceptors>
+</beans>
+```
+
+Your are now able to use JSE 107 API !
+For more information, please check the GitHub repository : https://github.com/jsr107/jsr107spec
+
+Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/html-single
 
 Next features
 ------
