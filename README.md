@@ -9,7 +9,7 @@ Main Goal
 
 This jar module is made to be embbeded as a Java EE 7 (Java EE 6 as well) Web application library.
 
-It enables support for JSR 107 a.k.a "JCache" Java EE based on Hazelcast implementation provider.
+It enables support for JSR 107 a.k.a "JCache" based on Hazelcast implementation provider.
 This JSR is the future of Java EE caching API currently targeted in Java EE 8 release.
 
 Using this module in a Web app will automatically expose a REST API to help dealing with Cache Managing features.
@@ -47,7 +47,7 @@ Then enable JCache interceptors in your beans.xml CDI descriptor
 </beans>
 ```
 
-Your are now able to use JSE 107 API !
+Your are now able to use JSR 107 API !
 For more information, please check the GitHub repository : https://github.com/jsr107/jsr107spec
 
 Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/html-single
