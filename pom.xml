@@ -69,7 +69,7 @@
         <plugin.maven-javadoc-plugin.version>2.9.1</plugin.maven-javadoc-plugin.version>
         <plugin.maven-gpg-plugin.version>1.5</plugin.maven-gpg-plugin.version>
         <plugin.nexus-staging-maven-plugin.version>1.6.3</plugin.nexus-staging-maven-plugin.version>
-        <plugin.maven-release-plugin.version>2.5</plugin.maven-release-plugin.version>
+        <plugin.maven-release-plugin.version>2.5.2</plugin.maven-release-plugin.version>
         <plugin.maven-compiler-plugin.version>3.3</plugin.maven-compiler-plugin.version>
     </properties>
 
