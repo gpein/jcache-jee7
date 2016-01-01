@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.gpein.jcache.interfaces.rest;
+package io.github.gpein.jcache.interfaces.rest.model;
 
 /**
  * REST representation of a cache
@@ -25,6 +25,8 @@ public class Cache {
     private boolean managementEnabled;
 
     private boolean statisticsEnabled;
+
+    private CacheStatistics statistics;
 
     public String getName() {
         return name;
@@ -48,5 +50,13 @@ public class Cache {
 
     public void setStatisticsEnabled(boolean statisticsEnabled) {
         this.statisticsEnabled = statisticsEnabled;
+    }
+
+    public CacheStatistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(CacheStatistics statistics) {
+        this.statistics = statistics;
     }
 }

@@ -63,6 +63,8 @@
         <lib.deltaspike.version>1.5.1</lib.deltaspike.version>
         <lib.assertj-core.version>1.6.1</lib.assertj-core.version>
         <lib.jaxrs-api.version>2.0.1</lib.jaxrs-api.version>
+        <lib.bootstrap.version>3.3.6</lib.bootstrap.version>
+        <lib.jstl.version>1.2</lib.jstl.version>
 
         <plugin.jacoco-maven-plugin.version>0.7.5.201505241946</plugin.jacoco-maven-plugin.version>
         <plugin.maven-source-plugin.version>2.2.1</plugin.maven-source-plugin.version>
@@ -207,6 +209,12 @@
             <version>${lib.jaxrs-api.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${lib.jstl.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- compile -->
         <dependency>
@@ -228,6 +236,11 @@
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
             <version>${lib.hazelcast.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${lib.bootstrap.version}</version>
         </dependency>
 
         <!-- test-->

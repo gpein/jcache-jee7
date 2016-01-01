@@ -15,7 +15,9 @@
  */
 package io.github.gpein.jcache.interfaces.rest;
 
-import javax.cache.CacheManager;
+import io.github.gpein.jcache.interfaces.rest.model.Cache;
+import io.github.gpein.jcache.service.JCacheService;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
@@ -31,24 +33,24 @@ import javax.ws.rs.core.Response;
 public class CacheResource {
 
     @Inject
-    private CacheManager cacheManager;
+    private JCacheService cacheService;
 
     /**
      * Modify state of a single cache
+     *
      * @param cacheName name of cache to modify
-     * @param cache data to modify
+     * @param cache     data to modify
      * @return response with status code 200
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response put(@PathParam("cacheName") String cacheName, Cache cache) {
 
-        if (cacheManager.getCache(cacheName) == null) {
+        if (!cacheService.isPresent(cacheName)) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        cacheManager.enableManagement(cacheName, cache.isManagementEnabled());
-        cacheManager.enableStatistics(cacheName, cache.isStatisticsEnabled());
+        cacheService.update(cacheName, cache);
 
         return Response.ok().build();
     }

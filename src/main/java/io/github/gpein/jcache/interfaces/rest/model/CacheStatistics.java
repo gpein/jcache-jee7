@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.gpein.jcache.interfaces.rest;
+package io.github.gpein.jcache.interfaces.rest.model;
 
 /**
  * REST representation of a cache statistics

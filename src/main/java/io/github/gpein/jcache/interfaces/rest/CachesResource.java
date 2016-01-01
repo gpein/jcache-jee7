@@ -15,16 +15,15 @@
  */
 package io.github.gpein.jcache.interfaces.rest;
 
-import javax.cache.CacheManager;
-import javax.cache.configuration.CompleteConfiguration;
+import io.github.gpein.jcache.interfaces.rest.model.Cache;
+import io.github.gpein.jcache.service.JCacheService;
+
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.Collection;
 
 /**
  * REST end point for operations on all caches
@@ -33,24 +32,14 @@ import java.util.stream.StreamSupport;
 public class CachesResource {
 
     @Inject
-    private CacheManager cacheManager;
+    private JCacheService cacheService;
 
     /**
      * @return collection of all running caches
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Cache> get() {
-        return StreamSupport.
-                stream(cacheManager.getCacheNames().spliterator(), false)
-                .map(cacheName -> {
-                    CompleteConfiguration configuration = cacheManager.getCache(cacheName).getConfiguration(CompleteConfiguration.class);
-                    Cache cache = new Cache();
-                    cache.setName(cacheName);
-                    cache.setManagementEnabled(configuration.isManagementEnabled());
-                    cache.setStatisticsEnabled(configuration.isStatisticsEnabled());
-                    return cache;
-                })
-                .collect(Collectors.toList());
+    public Collection<Cache> get() {
+        return cacheService.all();
     }
 }
