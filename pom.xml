@@ -33,8 +33,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/gpein/jcache-jee7.git</connection>
-        <developerConnection>scm:git:git@github.com:gpein/jcache-jee7.git</developerConnection>
+        <connection>scm:git:ssh://gpein@github.com/gpein/jcache-jee7.git</connection>
+        <developerConnection>scm:git:ssh://gpein@github.com:gpein/jcache-jee7.git</developerConnection>
         <url>http://github.com/gpein/jcache-jee7</url>
     </scm>
 
