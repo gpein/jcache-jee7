@@ -3,7 +3,7 @@
 
     <groupId>io.github.gpein</groupId>
     <artifactId>jcache-jee7</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <packaging>jar</packaging>
     <name>JCache JEE7 :: ${project.artifactId} - ${project.packaging}</name>
@@ -35,7 +35,7 @@
         <connection>scm:git:ssh://git@github.com/gpein/jcache-jee7.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/gpein/jcache-jee7.git</developerConnection>
         <url>http://github.com/gpein/jcache-jee7</url>
-      <tag>jcache-jee7-1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <distributionManagement>
