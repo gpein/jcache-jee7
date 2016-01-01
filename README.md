@@ -4,7 +4,7 @@ JCache JEE 7
 The project is under license [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 
-Main Goal
+Main goal
 ------------
 
 This jar module is made to be embbeded as a Java EE 7 (Java EE 6 as well) Web application library.
@@ -25,7 +25,7 @@ First step is adding maven dependency into your WEB-INF\lib (for a WAR packaging
 <dependency>
     <groupId>io.github.gpein</groupId>
     <artifactId>jcache-jee7</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -51,6 +51,11 @@ Your are now able to use JSR 107 API !
 For more information, please check the GitHub repository : https://github.com/jsr107/jsr107spec
 
 Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/html-single
+
+Releases
+------
+
+* 1.0.0 : initial release including JSR 107  support and REST API for handling cache statistics
 
 Next features
 ------
