@@ -29,7 +29,7 @@ import javax.ws.rs.core.Response;
 /**
  * REST end point for operations on all caches
  */
-@Path("caches/statistics")
+@Path("caches-statistics")
 public class CachesStatisticsResource {
 
     @Inject
