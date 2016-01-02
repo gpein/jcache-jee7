@@ -14,7 +14,7 @@ This JSR is the future of Java EE caching API currently targeted in Java EE 8 re
 
 Using this module in a Web app will automatically expose a REST API to help dealing with Cache Managing features.
  
-This module relies on others Java EE API : CDI, JAX-RS
+This module relies on others Java EE API : CDI, JAX-RS and JSP
 
 Quick start
 ------------

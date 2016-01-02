@@ -20,6 +20,15 @@ package io.github.gpein.jcache.interfaces.rest.model;
  */
 public class Cache {
 
+    public Cache() {
+    }
+
+    public Cache(boolean managementEnabled, boolean statisticsEnabled) {
+        this();
+        this.managementEnabled = managementEnabled;
+        this.statisticsEnabled = statisticsEnabled;
+    }
+
     private String name;
 
     private boolean managementEnabled;
