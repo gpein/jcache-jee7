@@ -15,7 +15,6 @@
  */
 package io.github.gpein.jcache.interfaces.rest;
 
-import io.github.gpein.jcache.interfaces.rest.model.Cache;
 import io.github.gpein.jcache.interfaces.rest.model.CachesStatistics;
 import io.github.gpein.jcache.service.JCacheService;
 
@@ -41,7 +40,7 @@ public class CachesStatisticsResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public Response get(CachesStatistics cachesStatistics) {
-        cacheService.all().forEach(cache -> cacheService.update(cache.getName(), new Cache(cache.isManagementEnabled(), cachesStatistics.isEnabled())));
+        cacheService.setStatistics(cachesStatistics.isEnabled());
         return Response.ok().build();
     }
 }

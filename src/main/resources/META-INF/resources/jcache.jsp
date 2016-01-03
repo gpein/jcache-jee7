@@ -21,10 +21,17 @@
     <div class="row">
         <div class="col-sm-2">
             <ul class="list-group">
-                <li class="list-group-item">Statistics
+                <li class="list-group-item">
+                    Statistics
                     <div class="btn-group btn-toggle">
-                        <button class="btn btn-default">ON</button>
-                        <button class="btn active btn-info">OFF</button>
+                        <c:if test="${statistics == false}">
+                            <button class="btn btn-default" onclick="reload(true)">ON</button>
+                            <button class="btn active btn-info" onclick="reload(false)">OFF</button>
+                        </c:if>
+                        <c:if test="${statistics == true}">
+                            <button class="btn active btn-info" onclick="reload(true)">ON</button>
+                            <button class="btn btn-default" onclick="reload(false)">OFF</button>
+                        </c:if>
                     </div>
                 </li>
             </ul>
@@ -108,6 +115,10 @@
 
         $(this).find('.btn').toggleClass('btn-default');
     });
+
+    function reload(enabled) {
+        location.href = 'jcache?statistics=' + enabled;
+    }
 </script>
 </body>
 </html>

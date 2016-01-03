@@ -51,6 +51,10 @@ public class JCacheService {
      */
     public void update(String cacheName, Cache cache) {
         cacheManager.enableManagement(cacheName, cache.isManagementEnabled());
+        updateStatistics(cacheName, cache);
+    }
+
+    private void updateStatistics(String cacheName, Cache cache) {
         cacheManager.enableStatistics(cacheName, cache.isStatisticsEnabled());
     }
 
@@ -77,6 +81,14 @@ public class JCacheService {
                     return cache;
                 })
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Enable or disable statistics for all caches
+     * @param enabled true for enabling all
+     */
+    public void setStatistics(boolean enabled) {
+        all().forEach(cache -> updateStatistics(cache.getName(), new Cache(false, enabled)));
     }
 
     /**
