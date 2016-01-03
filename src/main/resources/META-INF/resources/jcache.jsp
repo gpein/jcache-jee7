@@ -14,27 +14,19 @@
         </div>
     </div>
 
-    <div class="page-header">
-        <h1>Configuration</h1>
-    </div>
-
     <div class="row">
         <div class="col-sm-2">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    Statistics
-                    <div class="btn-group btn-toggle">
-                        <c:if test="${statistics == false}">
-                            <button class="btn btn-default" onclick="reload(true)">ON</button>
-                            <button class="btn active btn-info" onclick="reload(false)">OFF</button>
-                        </c:if>
-                        <c:if test="${statistics == true}">
-                            <button class="btn active btn-info" onclick="reload(true)">ON</button>
-                            <button class="btn btn-default" onclick="reload(false)">OFF</button>
-                        </c:if>
-                    </div>
-                </li>
-            </ul>
+            Statistics
+            <div class="btn-group btn-toggle">
+                <c:if test="${statistics == false}">
+                    <button class="btn btn-default" onclick="reload(true)">ON</button>
+                    <button class="btn active btn-info" onclick="reload(false)">OFF</button>
+                </c:if>
+                <c:if test="${statistics == true}">
+                    <button class="btn active btn-info" onclick="reload(true)">ON</button>
+                    <button class="btn btn-default" onclick="reload(false)">OFF</button>
+                </c:if>
+            </div>
         </div>
     </div>
 

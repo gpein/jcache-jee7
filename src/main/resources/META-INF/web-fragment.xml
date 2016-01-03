@@ -3,7 +3,7 @@
               xmlns="http://java.sun.com/xml/ns/javaee"
               xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
   http://java.sun.com/xml/ns/javaee/web-fragment_3_0.xsd"
-              id="WebFragment_ID" version="3.0">
+              id="jcache" version="3.0">
 
     <display-name>jcache-jee7</display-name>
     <name>jcache</name>
