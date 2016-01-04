@@ -18,14 +18,17 @@
         <div class="col-sm-2">
             Statistics
             <div class="btn-group btn-toggle">
-                <c:if test="${statistics == false}">
-                    <button class="btn btn-default" onclick="reload(true)">ON</button>
-                    <button class="btn active btn-info" onclick="reload(false)">OFF</button>
-                </c:if>
-                <c:if test="${statistics == true}">
-                    <button class="btn active btn-info" onclick="reload(true)">ON</button>
-                    <button class="btn btn-default" onclick="reload(false)">OFF</button>
-                </c:if>
+                <form action="jcache" method="post">
+                    <c:if test="${statistics == false}">
+                        <button class="btn btn-default" onclick="reload('true', this)">ON</button>
+                        <button class="btn active btn-info" onclick="reload('false', this)">OFF</button>
+                    </c:if>
+                    <c:if test="${statistics == true}">
+                        <button class="btn active btn-info" onclick="reload('true', this)">ON</button>
+                        <button class="btn btn-default" onclick="reload('false', this)">OFF</button>
+                    </c:if>
+                    <input type="hidden" id="statistics" name="statistics">
+                </form>
             </div>
         </div>
     </div>
@@ -98,18 +101,9 @@
 </div>
 <script src="webjars/jquery/2.1.4/jquery.min.js"></script>
 <script>
-    $('.btn-toggle').click(function () {
-        $(this).find('.btn').toggleClass('active');
-
-        if ($(this).find('.btn-info').size() > 0) {
-            $(this).find('.btn').toggleClass('btn-info');
-        }
-
-        $(this).find('.btn').toggleClass('btn-default');
-    });
-
-    function reload(enabled) {
-        location.href = 'jcache?statistics=' + enabled;
+    function reload(enabled, button) {
+        document.getElementById('statistics').value = enabled;
+        $(button).closest('form').submit();
     }
 </script>
 </body>
