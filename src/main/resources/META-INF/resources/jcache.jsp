@@ -15,21 +15,25 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-2">
-            Statistics
-            <div class="btn-group btn-toggle">
-                <form action="jcache" method="post">
-                    <c:if test="${statistics == false}">
-                        <button class="btn btn-default" onclick="reload('true', this)">ON</button>
-                        <button class="btn active btn-info" onclick="reload('false', this)">OFF</button>
-                    </c:if>
-                    <c:if test="${statistics == true}">
-                        <button class="btn active btn-info" onclick="reload('true', this)">ON</button>
-                        <button class="btn btn-default" onclick="reload('false', this)">OFF</button>
-                    </c:if>
-                    <input type="hidden" id="statistics" name="statistics">
-                </form>
-            </div>
+        <div class="col-md-2">
+            <h3><span class="label label-default">Statistics</span></h3>
+            <form action="jcache" method="post">
+                <c:if test="${statistics == false}">
+                    <button class="btn btn-default" onclick="reload('true', this)">ON</button>
+                    <button class="btn active btn-info" onclick="reload('false', this)">OFF</button>
+                </c:if>
+                <c:if test="${statistics == true}">
+                    <button class="btn active btn-info" onclick="reload('true', this)">ON</button>
+                    <button class="btn btn-default" onclick="reload('false', this)">OFF</button>
+                </c:if>
+                <input type="hidden" id="statistics" name="statistics">
+            </form>
+        </div>
+        <div class="col-md-2">
+            <h3><span class="label label-default">Export</span></h3>
+            <form method="get" action="jcache-stats-export">
+                <button class="btn btn-default" type="submit">CSV</button>
+            </form>
         </div>
     </div>
 
