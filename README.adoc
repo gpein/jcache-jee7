@@ -1,11 +1,11 @@
-JCache JEE 7
-========
+= JCache JEE 7
+
++image:https://travis-ci.org/gpein/jcache-jee7.svg?branch=master["Build Status", link="https://travis-ci.org/gpein/jcache-jee7"]
 
 The project is under license [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 
-Main goal
-------------
+== Main goal
 
 This jar module is made to be embbeded as a Java EE 7 Web application library.
 
@@ -16,29 +16,29 @@ Using this module in a Web app will automatically expose a REST API to help deal
  
 This module relies on others Java EE API : CDI, JAX-RS and JSP
 
-Requirements
-------------
+== Requirements
 
 * Java 8
 * Java EE 7
 * JAX-RS application for REST API support
 
-Quick start
-------------
+== Quick start
 
 First step is adding maven dependency into your WEB-INF\lib (for a WAR packaging)
 
-```xml 
+[source,xml]
+----
 <dependency>
     <groupId>io.github.gpein</groupId>
     <artifactId>jcache-jee7</artifactId>
     <version>1.0.0</version>
 </dependency>
-```
+----
 
 Then enable JCache interceptors in your beans.xml CDI descriptor
 
-```xml 
+[source,xml]
+----
 <beans xmlns="http://xmlns.jcp.org/xml/ns/javaee"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -52,19 +52,17 @@ Then enable JCache interceptors in your beans.xml CDI descriptor
         <class>org.jsr107.ri.annotations.cdi.CachePutInterceptor</class>
     </interceptors>
 </beans>
-```
+----
 
 Your are now able to use JSR 107 API !
 For more information, please check the GitHub repository : https://github.com/jsr107/jsr107spec
 
 Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/html-single
 
-Releases
-------
+== Releases
 
 * 1.0.0 : initial release including JSR 107  support and REST API for handling cache statistics
 
-Next features
-------
+== Next features
 
 * Basic UI to interact directly with REST API
