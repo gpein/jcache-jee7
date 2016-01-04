@@ -1,6 +1,6 @@
 = JCache JEE 7
 
-+image:https://travis-ci.org/gpein/jcache-jee7.svg?branch=master["Build Status", link="https://travis-ci.org/gpein/jcache-jee7"]
+image:https://travis-ci.org/gpein/jcache-jee7.svg?branch=master["Build Status", link="https://travis-ci.org/gpein/jcache-jee7"]
 
 The project is under license [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
