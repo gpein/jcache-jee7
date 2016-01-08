@@ -67,3 +67,166 @@ Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/h
 == Next features
 
 * Basic UI to interact directly with REST API
+
+== REST API documentation
+
+== /caches
+
+=== GET
+Get a basic representation of all running caches
+
+*Request*
+[cols="h,5a"]
+|===
+| Header
+| `Accept : application/json`
+
+| Body
+| N/A
+|===
+
+*Response*
+[cols="h,5a"]
+|===
+| Status
+|
+* 200 OK
+
+| Header
+|
++Content-Type+ : application/json
+
+| Body
+|
+[source,javascript]
+----
+[
+  {
+    "name": "book.cache",
+    "managementEnabled": true,
+    "statisticsEnabled": false
+  },
+  {
+    "name": "disk.cache",
+    "managementEnabled": true,
+    "statisticsEnabled": true
+  }
+]
+----
+|===
+
+== /caches/{cacheName}
+
+=== PUT
+Change cache attributes
+
+== Pattern matching
+* +{cacheName}+ is the unique name of a running cache
+
+*Request*
+[cols="h,5a"]
+|===
+| Parameters :
+| N/A
+
+| Header
+| `Accept : application/json`
+
+| Body
+|
+[source,javascript]
+----
+[
+  {
+    "managementEnabled": true,
+    "statisticsEnabled": false
+  }
+]
+----
+|===
+
+*Response*
+[cols="h,5a"]
+|===
+| Status
+|
+* 200 OK
+* 404 Not Found
+
+|===
+
+== /caches/{cacheName}/statistics
+
+=== Pattern matching
+* +{cacheName}+ is the unique name of a running cache
+
+== GET
+Read all statistics values for a named cache
+
+*Request*
+[cols="h,5a"]
+|===
+| Header
+| N/A
+
+| Body
+| N/A
+|===
+
+*Response*
+[cols="h,5a"]
+|===
+| Status
+|
+* 200 OK
+* 404 Not Found
+
+| Body
+|
+[source,javascript]
+----
+{
+    "hits": 560,
+    "misses": 9,
+    "hitPercentage": 98.418274,
+    "missPercentage": 1.5817223,
+    "gets": 569,
+    "puts": 9,
+    "removals": 0,
+    "evictions": 0,
+    "averageGetTime": 0,
+    "averagePutTime": 52.27778,
+    "averageRemoveTime": 0
+}
+----
+|===
+
+== /caches-statistics
+
+=== PUT
+Enable/Disable statistics for all caches
+
+*Request*
+[cols="h,5a"]
+|===
+| Header
+| `Accept : application/json`
+
+| Body
+|
+[source,javascript]
+----
+{
+    "enabled": true
+}
+----
+|===
+
+*Response*
+[cols="h,5a"]
+|===
+| Status
+|
+* 200 OK
+
+|===
