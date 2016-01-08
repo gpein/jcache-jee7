@@ -31,7 +31,7 @@ First step is adding maven dependency into your WEB-INF\lib (for a WAR packaging
 <dependency>
     <groupId>io.github.gpein</groupId>
     <artifactId>jcache-jee7</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ----
 
@@ -61,6 +61,7 @@ Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/h
 
 == Releases
 
+* 1.1.0 : added basic UI to manage cache statistics and export them as CSV file
 * 1.0.0 : initial release including JSR 107  support and REST API for handling cache statistics
 
 == Next features
