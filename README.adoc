@@ -57,7 +57,7 @@ Then enable JCache interceptors in your beans.xml CDI descriptor
 Your are now able to use JSR 107 API !
 For more information, please check the GitHub repository : https://github.com/jsr107/jsr107spec
 
-Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.5/manual/html-single
+Hazelcast manual can be found here : http://docs.hazelcast.org/docs/3.6/manual/html-single
 
 == Releases
 
