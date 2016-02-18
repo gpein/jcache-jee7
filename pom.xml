@@ -57,7 +57,7 @@
 
         <lib.cdi-api.version>1.1</lib.cdi-api.version>
         <lib.cache-api.version>1.0.0</lib.cache-api.version>
-        <lib.hazelcast.version>3.5.2</lib.hazelcast.version>
+        <lib.hazelcast.version>3.6</lib.hazelcast.version>
         <lib.testng.version>6.8.7</lib.testng.version>
         <lib.weld-se-core.version>2.3.1.Final</lib.weld-se-core.version>
         <lib.deltaspike.version>1.5.1</lib.deltaspike.version>
