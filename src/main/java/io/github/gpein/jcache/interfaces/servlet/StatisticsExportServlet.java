@@ -58,7 +58,7 @@ public class StatisticsExportServlet extends HttpServlet {
         outputStream.write(csv.toString().getBytes());
 
         response.setContentType("text/csv");
-        response.setHeader("Content-Disposition", "attachment; filename=" + request.getContextPath().replaceAll("/", "") + "-jcache-statistcs-" + new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date()) + ".csv");
+        response.setHeader("Content-Disposition", "attachment; filename=" + request.getContextPath().replaceAll("/", "") + "-jcache-statistics-" + new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date()) + ".csv");
         outputStream.flush();
         outputStream.close();
     }
